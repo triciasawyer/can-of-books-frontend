@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Carousel from 'react-bootstrap/Carousel';
 
 class BestBooks extends React.Component {
     constructor(props) {
@@ -24,14 +25,37 @@ class BestBooks extends React.Component {
     }
 
 
-
+    componentDidMount() {
+        this.getBooks();
+    }
 
 
     render() {
+        console.log(this.state.books);
 
+        let allBooks = this.state.books.map((book, index) => {
+            // return console.log('Yerrrrr', book.title);
+            return (
+            // <Carousel.Item key={index}>
+
+            //     <Carousel.Caption>
+                    <h3>Title: {book.title} </h3>
+            //     </Carousel.Caption>
+            // </Carousel.Item>
+            );
+        });
+
+
+// console.log('ALLLLLLL', allBooks);
         return (
             <>
+                {
+                    this.state.books.length > 0 && 
 
+                <Carousel>
+                  {allBooks}
+                </Carousel>
+                }
             </>
         )
     }
