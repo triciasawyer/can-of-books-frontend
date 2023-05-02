@@ -7,7 +7,7 @@ class Header extends React.Component {
 
         return (
             <>
-                <h1>Welcome to Can of Books</h1>
+                <h1>Can of Books</h1>
             </>
         )
     }
