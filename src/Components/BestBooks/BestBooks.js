@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import Carousel from 'react-bootstrap/Carousel';
-import bookImg from '../../book.png';
+// import bookImg from '../../book.png';
 import '../../App.css';
-import CreateBook from '../CreateBook.js';
-import { Outlet } from 'react-router-dom';
+// import CreateBook from '../CreateBook.js';
+import Books from '../Books';
+
 let SERVER = process.env.REACT_APP_SERVER;
 
 
@@ -90,31 +90,9 @@ class BestBooks extends React.Component {
 
         return (
             <>
-                {this.state.books.length ? (
-                    <Carousel id='carousel'>
-                        {this.state.books.map(book => (
-                            <Carousel.Item key={book._id}>
-                                <img className='image'
-                                    src={bookImg}
-                                    alt={book.title}
-                                />
-                                <Carousel.Caption>
-                                    <h3>Title: {book.title} </h3>
-                                    <p>Description: {book.description}</p>
-                                    <p>Status: {book.status}</p>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                        ))}
-                    </Carousel>
-                )
-                    : <h3 className='no-books-found'> No Books Found</h3>}
-                {/* <BestBooks books={this.state.books} deleteBooks={this.deleteBooks}/>  */}
-                <CreateBook handleBookSubmit={this.handleBookSubmit} />
-                <Outlet />
+                <Books deletedBooks={this.props.deleteBooks} />
             </>
-
         )
-
     }
 }
 
