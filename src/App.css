@@ -27,3 +27,18 @@ footer {
   width: 600px;
   height: 400px;
 }
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid rgba(0, 0, 0, 0.66);
+  list-style: none;
+  text-decoration: none;
+  width: 300px;
+}
+
+nav ul a {
+  padding: 15px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.66);
+}
