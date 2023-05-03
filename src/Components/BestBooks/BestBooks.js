@@ -3,6 +3,9 @@ import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
 import bookImg from '../../book.png';
 import '../../App.css';
+import CreateBook from '../CreateBook.js';
+import { Outlet } from 'react-router-dom';
+let SERVER = process.env.REACT_APP_SERVER;
 
 
 class BestBooks extends React.Component {
@@ -28,9 +31,57 @@ class BestBooks extends React.Component {
     }
 
 
+    //handle book submit
+    handleBookSubmit = async (event) => {
+        event.preventDefault();
+        let newBook = {
+          title: event.target.title.value,
+          description: event.target.description.value,
+          status: event.target.status.checked,
+        }
+        console.log(newBook);
+        this.postBook(newBook)
+      };
+
+
+      postBook = async (newBookObject) => {
+        try {
+          let url = `${SERVER}/books`;
+          let createdBook = await axios.post(url, newBookObject);
+        //   console.log("🚀 createdBook:", createdBook);
+        
+          this.setState({
+            books:[...this.state.books, createdBook.data],
+          });
+          
+        } catch (error) {
+          console.log('we have an error: ', error.response.data);
+        }
+        }
+
+
+//Delete books
+// deleteBooks = async (id) => {
+//     try {
+//       let url = `${SERVER}/books/${id}`;
+//       await axios.delete(url);
+
+//       let updateBooks = this.state.books.filter(book => book._id !== id);
+//       this.setState({
+//         cats: updateBooks
+//       })
+//     } catch (error) {
+//     //   console.log("there's an error: ", error.response.data);
+  
+//     }
+//   };
+
+
+
     componentDidMount() {
         this.getBooks();
     }
+
 
 
     render() {
@@ -56,7 +107,9 @@ class BestBooks extends React.Component {
                         ))}
                     </Carousel>
                 )   
-                       : <h3 className='no-books-found'> No Books Found</h3> }                
+                       : <h3 className='no-books-found'> No Books Found</h3> }    
+                       <CreateBook handleBookSubmit={this.handleBookSubmit} />  
+                       <Outlet />         
             </>
 
         )

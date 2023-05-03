@@ -5,6 +5,7 @@ import Main from './Components/Main/Main.js';
 import Footer from './Components/Footer/Footer.js';
 
 
+
 class App extends React.Component {
 
   render() {
@@ -18,9 +19,6 @@ class App extends React.Component {
     )
   }
 }
-
-
-
 
 
 

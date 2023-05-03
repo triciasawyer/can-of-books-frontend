@@ -16,16 +16,17 @@ footer {
 }
 
 .carousel {
-  width: 600px;
-  height: 404px;
+  width: 700px;
+  height: 504px;
   margin-left: 410px;
-  margin-top: 150px;
+  margin-top: 100px;
+  margin-bottom: 20px;
   border: 2px solid black;
 }
 
 .image {
-  width: 600px;
-  height: 400px;
+  width: 700px;
+  height: 500px;
 }
 
 nav ul {
