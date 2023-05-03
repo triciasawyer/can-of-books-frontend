@@ -12,15 +12,15 @@ class CreateBook extends React.Component {
         return (
             <Container className='Form'>
                 <Form onSubmit={this.props.handleBookSubmit}>
-                    <Form.Group control id='title'>
+                    <Form.Group controlId='title'>
                         <Form.Label>Title</Form.Label>
                         <Form.Control type='text' />
                     </Form.Group>
-                    <Form.Group control id='description'>
+                    <Form.Group controlId='description'>
                         <Form.Label>Description</Form.Label>
                         <Form.Control type='text' />
                     </Form.Group>
-                    <Form.Group control id='status'>
+                    <Form.Group controlId='status'>
                         <Form.Check type='checkbox' label='status' />
                     </Form.Group>
                     <Button type='submit'>Add Book</Button>

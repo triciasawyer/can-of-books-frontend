@@ -62,6 +62,7 @@ class BestBooks extends React.Component {
 
     // Delete books
     deleteBooks = async (id) => {
+        console.log('proof of life', )
         try {
             let url = `${SERVER}/books/${id}`;
             await axios.delete(url);
@@ -90,7 +91,11 @@ class BestBooks extends React.Component {
 
         return (
             <>
-                <Books deletedBooks={this.props.deleteBooks} />
+                <Books
+                books={this.state.books}
+                deleteBooks={this.deleteBooks} 
+                handleBookSubmit={this.handleBookSubmit}/>
+                {/* pass the update this.updateBook */}
             </>
         )
     }
