@@ -5,7 +5,9 @@ class About extends React.Component {
   render() {
     // console.log('Pageeeee');
     return (
-      <div className='about-p'>Jelly beans liquorice pastry jujubes pudding donut chocolate bonbon halvah. Biscuit cotton candy tart jelly-o oat cake caramels halvah pudding. Chocolate bar macaroon fruitcake soufflé pudding fruitcake caramels tiramisu soufflé. Chocolate ice cream gummi bears jelly-o gummi bears muffin jelly beans chocolate jelly-o. Lollipop cupcake donut jelly cotton candy oat cake sugar plum bear claw. Ice cream jujubes sweet cheesecake pastry. Cookie marshmallow caramels dragée marshmallow muffin topping chocolate bar cheesecake. Marzipan jelly beans jelly beans cake gummies candy canes apple pie gummies. Chocolate cake toffee gingerbread carrot cake apple pie jujubes bonbon. Powder bonbon halvah tootsie roll cake lemon drops. Wafer sweet ice cream jujubes brownie soufflé chocolate. Biscuit pudding lollipop chocolate bar gummi bears. Apple pie candy chocolate pie toffee dragée fruitcake jelly beans chupa chups. Gummi bears candy canes oat cake brownie wafer jelly-o.</div>
+      <div className='about-p'>
+        Hello, my name is Tricia Sawyer and I am currently a student at DeltaV code school, studying software development. I will graduate in July of 2023. Before that, I was a college student at Kirkwood Community College where I received my associates of Liberal Arts. Software development is something I chose to do right after I graduated, as I took some classes in tech and grew an interest. Along the way, I have gained experience using programming languages such as CSS, HTML, Javascript, React, and Bootstrap. With that, I plan to pursue a career in web development or mobile app creation. Through my educational experience, I have refined my skills in problem solving, collaboration, and time management.
+      </div>
     )
   }
 }
