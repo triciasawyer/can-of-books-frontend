@@ -35,7 +35,8 @@ nav ul {
   border: 2px solid rgba(0, 0, 0, 0.66);
   list-style: none;
   text-decoration: none;
-  width: 300px;
+  width: 225px;
+  margin-left: 60px;
 }
 
 nav ul a {
