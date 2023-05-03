@@ -35,46 +35,46 @@ class BestBooks extends React.Component {
     handleBookSubmit = async (event) => {
         event.preventDefault();
         let newBook = {
-          title: event.target.title.value,
-          description: event.target.description.value,
-          status: event.target.status.checked,
+            title: event.target.title.value,
+            description: event.target.description.value,
+            status: event.target.status.checked,
         }
         console.log(newBook);
         this.postBook(newBook)
-      };
+    };
 
 
-      postBook = async (newBookObject) => {
+    postBook = async (newBookObject) => {
         try {
-          let url = `${SERVER}/books`;
-          let createdBook = await axios.post(url, newBookObject);
-        //   console.log("🚀 createdBook:", createdBook);
-        
-          this.setState({
-            books:[...this.state.books, createdBook.data],
-          });
-          
+            let url = `${SERVER}/books`;
+            let createdBook = await axios.post(url, newBookObject);
+            //   console.log("🚀 createdBook:", createdBook);
+
+            this.setState({
+                books: [...this.state.books, createdBook.data],
+            });
+
         } catch (error) {
-          console.log('we have an error: ', error.response.data);
+            console.log('we have an error: ', error.response.data);
         }
+    }
+
+
+    // Delete books
+    deleteBooks = async (id) => {
+        try {
+            let url = `${SERVER}/books/${id}`;
+            await axios.delete(url);
+
+            let updateBooks = this.state.books.filter(book => book._id !== id);
+            this.setState({
+                books: updateBooks
+            })
+        } catch (error) {
+            //   console.log("there's an error: ", error.response.data);
+
         }
-
-
-//Delete books
-// deleteBooks = async (id) => {
-//     try {
-//       let url = `${SERVER}/books/${id}`;
-//       await axios.delete(url);
-
-//       let updateBooks = this.state.books.filter(book => book._id !== id);
-//       this.setState({
-//         cats: updateBooks
-//       })
-//     } catch (error) {
-//     //   console.log("there's an error: ", error.response.data);
-  
-//     }
-//   };
+    };
 
 
 
@@ -96,8 +96,8 @@ class BestBooks extends React.Component {
                             <Carousel.Item key={book._id}>
                                 <img className='image'
                                     src={bookImg}
-                                    alt={book.title} 
-                                    />
+                                    alt={book.title}
+                                />
                                 <Carousel.Caption>
                                     <h3>Title: {book.title} </h3>
                                     <p>Description: {book.description}</p>
@@ -106,14 +106,15 @@ class BestBooks extends React.Component {
                             </Carousel.Item>
                         ))}
                     </Carousel>
-                )   
-                       : <h3 className='no-books-found'> No Books Found</h3> }    
-                       <CreateBook handleBookSubmit={this.handleBookSubmit} />  
-                       <Outlet />         
+                )
+                    : <h3 className='no-books-found'> No Books Found</h3>}
+                {/* <BestBooks books={this.state.books} deleteBooks={this.deleteBooks}/>  */}
+                <CreateBook handleBookSubmit={this.handleBookSubmit} />
+                <Outlet />
             </>
 
         )
-                        
+
     }
 }
 
