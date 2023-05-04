@@ -62,7 +62,7 @@ class BestBooks extends React.Component {
 
     // Delete books
     deleteBooks = async (id) => {
-        console.log('proof of life', )
+        console.log('proof of life',)
         try {
             let url = `${SERVER}/books/${id}`;
             await axios.delete(url);
@@ -76,6 +76,22 @@ class BestBooks extends React.Component {
 
         }
     };
+
+    updateBooks = async (bookToUpdate) => {
+        console.log('function in Update', bookToUpdate._id);
+        try {
+            let updateURL = `${SERVER}/books/${bookToUpdate._id}`;
+            let newUpdatedBook = await axios.put(updateURL, bookToUpdate);
+            let updatedBookArray = this.state.books.map(existingBook => {
+                return existingBook._id === bookToUpdate._id
+                    ? newUpdatedBook.data
+                    : existingBook;
+            });
+            this.setState({
+                books: updatedBookArray
+            });
+        } catch (error) { }
+    }
 
 
 
@@ -92,10 +108,10 @@ class BestBooks extends React.Component {
         return (
             <>
                 <Books
-                books={this.state.books}
-                deleteBooks={this.deleteBooks} 
-                handleBookSubmit={this.handleBookSubmit}/>
-                {/* pass the update this.updateBook */}
+                    books={this.state.books}
+                    deleteBooks={this.deleteBooks}
+                    handleBookSubmit={this.handleBookSubmit}
+                    updateBooks={this.updateBooks} />
             </>
         )
     }
