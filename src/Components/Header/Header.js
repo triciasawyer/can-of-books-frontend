@@ -11,11 +11,11 @@ class Header extends React.Component {
                 <h1>Can of Books</h1>
                 <nav>
                     <ul>
-                        <li>
+                        <li className='home-nav'>
                             <Link to={"/"}>Home</Link>
                         </li>
                         <li>
-                            <Link to={"about"}>About Us</Link>
+                            <Link to={"about"}>About</Link>
                         </li>
                     </ul>
                 </nav>

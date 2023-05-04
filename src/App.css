@@ -16,14 +16,31 @@ footer {
 }
 
 .carousel {
-  width: 600px;
-  height: 404px;
+  width: 700px;
+  height: 504px;
   margin-left: 410px;
-  margin-top: 150px;
+  margin-top: 100px;
+  margin-bottom: 20px;
   border: 2px solid black;
 }
 
 .image {
-  width: 600px;
-  height: 400px;
+  width: 700px;
+  height: 500px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid rgba(0, 0, 0, 0.66);
+  list-style: none;
+  text-decoration: none;
+  width: 225px;
+  margin-left: 60px;
+}
+
+nav ul a {
+  padding: 15px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.66);
 }
