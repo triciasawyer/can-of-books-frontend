@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import bookImg from '../book.png';
 import CreateBook from './CreateBook.js';
-// import UpdateBookForm from './UpdatedBookForm';
+import UpdateBookForm from './UpdatedBookForm';
 
 
 
@@ -34,8 +34,8 @@ constructor(props){
                     {/* update button here */}
                     <Button variant='info' onClick ={() => this.setState({showUpdateForm: true})}>Update Book</Button>
                     {/* { */}
-                    {/* // this.state.showUpdateForm &&  */}
-        {/* //   <UpdateBookForm book={this.props.book} updateBooks={this.props.updateBooks}/> */}
+                     this.state.showUpdateForm && 
+                 <UpdateBookForm book={this.props.book} updateBooks={this.props.updateBooks}/>
                     {/* } */}
                 </Carousel.Item>
             );
