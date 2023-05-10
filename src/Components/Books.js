@@ -3,12 +3,19 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import bookImg from '../book.png';
 import CreateBook from './CreateBook.js';
+import UpdateBookForm from './UpdatedBookForm';
 
 
 
 class Books extends React.Component {
 
 // add state to handle the form show and hide
+constructor(props){
+    super(props);
+    this.state = {
+        showUpdateForm: false
+    }
+}
 
     render() {
         console.log('YEEEE', this.props.books);
@@ -23,8 +30,13 @@ class Books extends React.Component {
                         </Carousel.Caption>
                         <Button
                             variant="success"
-                            onClick={() => this.props.deleteBooks(book._id)}>Delete Books</Button>
+                            onClick={() => this.props.deleteBooks(book._id)}>Delete Book</Button>
                     {/* update button here */}
+                    <Button variant='info' onClick ={() => this.setState({showUpdateForm: true})}>Update Book</Button>
+                    {/* { */}
+                     this.state.showUpdateForm && 
+                 <UpdateBookForm book={this.props.book} updateBooks={this.props.updateBooks}/>
+                    {/* } */}
                 </Carousel.Item>
             );
         });
@@ -34,7 +46,7 @@ class Books extends React.Component {
             <>
                 <Carousel id='carousel'>{books}</Carousel>
                 <CreateBook handleBookSubmit={this.props.handleBookSubmit} />
-
+                {/* <UpdateBookForm handleSubmit={this.props.handleSubmit} /> */}
             </>
         );
     }
